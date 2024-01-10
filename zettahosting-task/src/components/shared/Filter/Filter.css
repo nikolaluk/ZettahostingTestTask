@@ -14,3 +14,8 @@
     display: flex;
     gap: 4px;
 }
+
+.filter-contents-right {
+    display: flex;
+    gap: 4px;
+}

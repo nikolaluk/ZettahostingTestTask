@@ -3,7 +3,7 @@
     border-radius: 6px;
 
     color: white;
-    background-color: green;
+    background-color: #292C2F;
 
     cursor: pointer;
 }
@@ -15,14 +15,10 @@
     cursor: pointer;
 }
 
-.filter-tab.green {
-    background-color: #00C471;
-}
-
-.filter-tab.gray {
-    background-color: #292C2F;
-}
-
-.filter-tab.gray:hover {
+.filter-tab:hover {
     background-color: #1A1C1D;
+}
+
+.filter-tab.true {
+    background-color: #00C471;
 }
