@@ -1,0 +1,16 @@
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 56px;
+
+    padding: 8px;
+
+    background-color: #292C2F;
+    border-radius: 12px;
+}
+
+.filter-contents-left {
+    display: flex;
+    gap: 4px;
+}
