@@ -5,6 +5,8 @@ function FilterTab(data) {
     const [active, setActive] = useState(false);
     const content = data.data.content;
 
+    //USE CONTEXT FOR ACTIVE
+
     function handleClick() {
         setActive(true);
     }
