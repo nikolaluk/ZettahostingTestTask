@@ -5,15 +5,28 @@ CatalogContext.displayName = 'CatalogContext';
 
 export const CatalogProvider = ({children}) => {
     const [activeFilter, setActiveFilter] = useState('All');
+    const [activeProvider, setActiveProvider] = useState('All');
+    const [activeGenre, setActiveGenre] = useState('All');
 
     const changeActiveFilterHandler = (string) => {
-        console.log(string);
         setActiveFilter(string);
+    }
+
+    const changeActiveProviderHandler = (string) => {
+        setActiveProvider(string);
+    }
+
+    const changeActiveGenreHandler = (string) => {
+        setActiveGenre(string);
     }
 
     const values = {
         changeActiveFilterHandler,
+        changeActiveProviderHandler,
+        changeActiveGenreHandler,
         activeFilter,
+        activeProvider,
+        activeGenre,
     }
 
     return (

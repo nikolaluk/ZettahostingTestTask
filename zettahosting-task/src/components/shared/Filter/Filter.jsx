@@ -14,8 +14,8 @@ function Filter() {
                 <FilterTab data={{content: "20% Cash Back"}}></FilterTab>
             </div>
             <div className="filter-contents-right">
-                <Dropdown></Dropdown>
-                <Dropdown></Dropdown>
+                <Dropdown data={{label: "By provider"}}></Dropdown>
+                <Dropdown data={{label: "By genre"}}></Dropdown>
                 <SearchInput></SearchInput>
             </div>
         </div>
