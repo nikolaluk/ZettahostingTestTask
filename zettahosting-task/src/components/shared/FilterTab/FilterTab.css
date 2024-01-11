@@ -19,6 +19,6 @@
     background-color: #1A1C1D;
 }
 
-.filter-tab.true {
+.filter-tab.active {
     background-color: #00C471;
 }

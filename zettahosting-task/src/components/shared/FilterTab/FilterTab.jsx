@@ -1,18 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./FilterTab.css"
+import CatalogContext from "../../../contexts/catalogContext";
 
 function FilterTab(data) {
-    const [active, setActive] = useState(false);
+    const { changeActiveFilterHandler, activeFilter } = useContext(CatalogContext);
+
     const content = data.data.content;
 
-    //USE CONTEXT FOR ACTIVE
-
-    function handleClick() {
-        setActive(true);
-    }
-
     return(
-        <div className={`filter-tab ${active}`} onClick={handleClick}>
+        <div className={`filter-tab ${activeFilter == content ? "active" : ""}`}  onClick={() => changeActiveFilterHandler(content)}>
             <label>{content}</label>
         </div>
     )
