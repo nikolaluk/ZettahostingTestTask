@@ -5,8 +5,8 @@ CatalogContext.displayName = 'CatalogContext';
 
 export const CatalogProvider = ({children}) => {
     const [activeFilter, setActiveFilter] = useState('All');
-    const [activeProvider, setActiveProvider] = useState('All');
-    const [activeGenre, setActiveGenre] = useState('All');
+    const [activeProvider, setActiveProvider] = useState('all');
+    const [activeGenre, setActiveGenre] = useState('all');
 
     const changeActiveFilterHandler = (string) => {
         setActiveFilter(string);

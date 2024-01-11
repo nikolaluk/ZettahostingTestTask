@@ -1,3 +1,8 @@
+.dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .dropdown {
     display: flex;
     align-items: center;
@@ -11,17 +16,27 @@
     cursor: pointer;
 }
 
-.dropdown > .label {
+.dropdown-options-container {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    background-color: white;
+    border-radius: 6px;
+
+    z-index: 100;
+}
+
+.dropdown-label {
     color: #8B8F93;
     cursor: pointer;
 }
 
-.dropdown > .value {
+.dropdown-value {
     color: white;
     cursor: pointer;
 }
 
-.dropdown > img {
+.dropdown-image {
     color: #8B8F93;
     cursor: pointer;
 }
