@@ -1,12 +1,17 @@
 import "./Game.css"
 
-function Game() {
+function Game(data) {
+  const image = data.data;
 
-    return (
-        <div className="game-div">
+  const divStyle = {
+    backgroundImage: `url(${image})`,
+  };
 
-        </div>
-      )
+  return (
+    <div className="game-div" style={divStyle}>
+
+    </div>
+  )
 }
 
 export default Game;

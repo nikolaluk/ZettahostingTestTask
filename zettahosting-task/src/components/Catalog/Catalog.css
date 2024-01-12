@@ -7,12 +7,3 @@
     align-items: center;
     gap: 20px;
 }
-
-.games-container {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 20px;
-
-    width: 1200px;
-}

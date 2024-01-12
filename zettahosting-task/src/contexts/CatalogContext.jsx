@@ -38,6 +38,7 @@ export const CatalogProvider = ({ children }) => {
         activeFilter,
         activeProvider,
         activeGenre,
+        gamesToShow,
     }
 
     useEffect(() => {
@@ -144,7 +145,6 @@ export const CatalogProvider = ({ children }) => {
             } else {
                 setGamesToShow([]);
             }
-            console.log(temp);
             setGamesToShow(temp);
             setGamesToShowChanged(false);
         }

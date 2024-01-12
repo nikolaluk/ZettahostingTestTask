@@ -1,29 +1,15 @@
 import { CatalogProvider } from "../../contexts/catalogContext"
 import Filter from "../shared/Filter/Filter"
-import Game from "../shared/Game/Game"
+import GameContainer from "../shared/GameContainer/GameContainer"
 import "./Catalog.css"
 
 function Catalog() {
-
 
   return (
     <CatalogProvider>
       <div className="catalog-wrapper">
         <Filter />
-        <div className="games-container">
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-          <Game></Game>
-        </div>
+        <GameContainer/>
       </div>
     </CatalogProvider>
   )
