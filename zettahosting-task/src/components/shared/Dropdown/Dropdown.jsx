@@ -21,7 +21,7 @@ function Dropdown(data) {
     const { activeGenre } = useContext(CatalogContext);
 
     const dropdownProviderOptions = providers.map(provider => {
-        return <DropdownOption key={provider.id} data={{type: "provider", label: `${provider.name}`, icon: provider.logo}}/>
+        return <DropdownOption key={provider.id} data={{type: "provider", label: `${provider.name}`, icon: provider.logo, value: provider.id}}/>
     })
 
     function closeOptionsOnOutsideClick(event) {
@@ -48,7 +48,7 @@ function Dropdown(data) {
                 <label className="dropdown-label">{label}:</label>
 
                 {label == "By provider" &&
-                    <label className="dropdown-value">{activeProvider}</label>
+                    <label className="dropdown-value">{activeProvider ? activeProvider.name : "all"}</label>
                 }
 
                 {label == "By genre" &&
