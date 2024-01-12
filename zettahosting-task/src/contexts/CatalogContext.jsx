@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import jsonData from "../data/data.json";
 
 const CatalogContext = createContext();
@@ -13,8 +13,6 @@ export const CatalogProvider = ({ children }) => {
 
     const changeActiveFilterHandler = (string) => {
         setActiveFilter(string);
-
-        reduceGamesToShow();
     }
 
     const changeActiveProviderHandler = (id) => {
@@ -23,16 +21,22 @@ export const CatalogProvider = ({ children }) => {
                 setActiveProvider(provider);
             }
         }
-        reduceGamesToShow();
     }
 
     const changeActiveGenreHandler = (string) => {
         setActiveGenre(string);
-
-        reduceGamesToShow();
     }
 
-    const reduceGamesToShow = () => {
+    const values = {
+        changeActiveFilterHandler,
+        changeActiveProviderHandler,
+        changeActiveGenreHandler,
+        activeFilter,
+        activeProvider,
+        activeGenre,
+    }
+
+    useEffect(() => {
         let temp = [];
         if (activeFilter == "All") {
             setGamesToShow(jsonData.games);
@@ -62,30 +66,22 @@ export const CatalogProvider = ({ children }) => {
                     }
                 }
             }
-        }  else if (activeFilter == "Favourites") {
+        } else if (activeFilter == "Favourites") {
 
         } else if (activeFilter == "Popular") {
-        
+
         } else {
             setGamesToShow([]);
         }
         console.log(temp);
-    }
 
-const values = {
-    changeActiveFilterHandler,
-    changeActiveProviderHandler,
-    changeActiveGenreHandler,
-    activeFilter,
-    activeProvider,
-    activeGenre,
-}
+    }, [activeFilter, activeProvider, activeGenre, gamesToShow]);
 
-return (
-    <CatalogContext.Provider value={values}>
-        {children}
-    </CatalogContext.Provider>
-)
+    return (
+        <CatalogContext.Provider value={values}>
+            {children}
+        </CatalogContext.Provider>
+    )
 }
 
 export default CatalogContext;
