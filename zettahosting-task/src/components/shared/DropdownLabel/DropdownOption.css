@@ -3,5 +3,9 @@
     border-radius: 4px;
     background-color: white;
 
-    width: 212px;
+    cursor: pointer;
+}
+
+.dropdown-option:hover {
+    background-color: #F5F8FA;
 }
