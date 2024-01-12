@@ -1,24 +1,28 @@
 import { useContext, useEffect, useRef, useState } from "react";
 
 import arrowImg from "../../../assets/rmx-arrow-down-s-line.svg";
-import OneByTwo from "../../../assets/icons/1x2.svg";
-import Amatic from "../../../assets/icons/amatic.svg";
-import Apollogames from "../../../assets/icons/apollogames.svg";
-import ClipPathGroup from "../../../assets/icons/Clip path group.svg";
-import TwoByTwo from "../../../assets/icons/Group.svg";
 
 import CatalogContext from "../../../contexts/catalogContext";
-import DropdownOption from "../DropdownLabel/DropdownOption";
+import DropdownOption from "../DropdownOption/DropdownOption";
+
+import jsonData from "../../../data/data.json"
 
 import "./Dropdown.css"
 
 function Dropdown(data) {
     const label = data.data.label;
+
+    const providers = jsonData.providers;
+
     const [optionsVisible, setOptionsVisible] = useState(false);
     const dropdownRef = useRef(null);
 
     const { activeProvider } = useContext(CatalogContext);
     const { activeGenre } = useContext(CatalogContext);
+
+    const dropdownProviderOptions = providers.map(provider => {
+        return <DropdownOption key={provider.id} data={{type: "provider", label: `${provider.name}`, icon: provider.logo}}/>
+    })
 
     function closeOptionsOnOutsideClick(event) {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -56,12 +60,7 @@ function Dropdown(data) {
 
             {label == "By provider" && optionsVisible && (
                 <div className="dropdown-options-container">
-                    <DropdownOption data={{type:"provider", label: "1x2 Network (51)", icon: OneByTwo}}/>
-                    <DropdownOption data={{type:"provider", label: "2 by 2 games (31)", icon: Amatic}}/>
-                    <DropdownOption data={{type:"provider", label: "Amatic", icon: Apollogames}}/>
-                    <DropdownOption data={{type:"provider", label: "Apollo Games", icon: ClipPathGroup}}/>
-                    <DropdownOption data={{type:"provider", label: "Aspect Gameing", icon: TwoByTwo}}/>
-                    {/* Add more DropdownOption components as needed */}
+                    {dropdownProviderOptions}
                 </div>
             )}
 
@@ -71,7 +70,6 @@ function Dropdown(data) {
                     <DropdownOption data={{type:"genre", label: "Slot"}}/>
                     <DropdownOption data={{type:"genre", label: "Blackjack"}}/>
                     <DropdownOption data={{type:"genre", label: "Rulet"}}/>
-                    {/* Add more DropdownOption components as needed */}
                 </div>
             )}
         </div>

@@ -7,6 +7,8 @@ function DropdownOption(data) {
     const type = data.data.type;
     const label = data.data.label;
 
+    console.log(data.data.icon);
+
     const {
         changeActiveProviderHandler,
         changeActiveGenreHandler,
@@ -16,6 +18,7 @@ function DropdownOption(data) {
         <>
             {type == "provider" &&
                 <div className="dropdown-option" onClick={() => changeActiveProviderHandler(label)}>
+                    <img src={data.data.icon} alt="" className="dropdown-option-image"/>
                     <label>{label}</label>
                 </div>}
 
