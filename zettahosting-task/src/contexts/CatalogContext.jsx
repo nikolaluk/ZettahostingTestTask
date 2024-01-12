@@ -73,7 +73,7 @@ export const CatalogProvider = ({ children }) => {
         } else {
             setGamesToShow([]);
         }
-        console.log(temp);
+        setGamesToShow(temp);
 
     }, [activeFilter, activeProvider, activeGenre, gamesToShow]);
 
