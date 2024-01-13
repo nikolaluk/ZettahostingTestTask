@@ -1,7 +1,7 @@
-import Dropdown from "../Dropdown/Dropdown";
-import FilterMore from "../FilterMore/FilterMore";
-import FilterTab from "../FilterTab/FilterTab";
-import SearchInput from "../SearchInput/SearchInput";
+import Dropdown from "../../shared/Dropdown/Dropdown";
+import FilterTabDropdown from "../../shared/FilterTabDropdown/FilterTabDropdown";
+import FilterTab from "../../shared/FilterTab/FilterTab";
+import SearchInput from "../../shared/SearchInput/SearchInput";
 import "./Filter.css"
 
 function Filter() {
@@ -13,7 +13,10 @@ function Filter() {
                 <FilterTab data={{content: "Favourites"}}></FilterTab>
                 <FilterTab data={{content: "Popular"}}></FilterTab>
                 <FilterTab data={{content: "20% Cash Back"}}></FilterTab>
-                <FilterMore data={{content: "More"}}></FilterMore>
+                <FilterTabDropdown data={{content: "More"}}></FilterTabDropdown>
+            </div>
+            <div className="filter-contents-left-small">
+                <FilterTabDropdown data={{content: "All"}}></FilterTabDropdown>
             </div>
             <div className="filter-contents-right">
                 <Dropdown data={{label: "By provider"}}></Dropdown>

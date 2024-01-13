@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "./GameContainer.css"
 import CatalogContext from "../../../contexts/catalogContext";
-import Game from "../Game/Game";
+import Game from "../../shared/Game/Game";
 
 function GameContainer() {
     const { gamesToShow } = useContext(CatalogContext);

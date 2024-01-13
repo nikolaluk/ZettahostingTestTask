@@ -1,6 +1,8 @@
+import Filter from "../core/Filter/Filter"
+import GameContainer from "../core/GameContainer/GameContainer"
+
 import { CatalogProvider } from "../../contexts/catalogContext"
-import Filter from "../shared/Filter/Filter"
-import GameContainer from "../shared/GameContainer/GameContainer"
+
 import "./Catalog.css"
 
 function Catalog() {

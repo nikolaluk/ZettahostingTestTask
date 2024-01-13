@@ -25,3 +25,19 @@
 .filter-more.active {
     background-color: #00C471;
 }
+
+.dropdown-options-container-small {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    background-color: white;
+    border-radius: 6px;
+
+    z-index: 100;
+}

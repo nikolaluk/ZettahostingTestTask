@@ -9,3 +9,21 @@
 
     cursor: pointer;
 }
+
+@media screen and (max-width: 1134px){
+    .game-div {
+        width: 273px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .game-div {
+        width: 274px;
+    }
+}
+
+@media screen and (max-width: 744px) {
+    .game-div {
+        width: 322px;
+    }
+}
