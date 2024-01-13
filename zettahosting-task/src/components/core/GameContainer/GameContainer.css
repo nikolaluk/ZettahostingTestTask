@@ -36,3 +36,9 @@
         width: 357px;
     }
 }
+
+@media screen and (max-width: 321px) {
+    .games-container {
+        width: 280px;
+    }
+}

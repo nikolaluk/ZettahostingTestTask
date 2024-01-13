@@ -1,5 +1,5 @@
 import CatalogContext from "../../../contexts/catalogContext";
-import arrowImg from "../../../assets/rmx-arrow-down-s-line.svg";
+import arrowImg from "../../../assets/rmx-arrow-down-s-line white.svg";
 
 import { useContext, useEffect, useRef, useState } from "react";
 

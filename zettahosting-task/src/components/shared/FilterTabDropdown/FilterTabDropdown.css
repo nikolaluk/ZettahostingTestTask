@@ -8,10 +8,15 @@
     color: white;
     background-color: #292C2F;
 
+    margin-right: 4px;
+
     cursor: pointer;
 }
 
 .filter-more > label {
+    max-width: 80px;
+    overflow: hidden;
+
     font-weight: 400;
     font-size: 16px;
 
@@ -24,4 +29,23 @@
 
 .filter-more.active {
     background-color: #00C471;
+}
+
+@media screen and (max-width:1134px) {
+    .filter-more > label {
+        max-width: 120px;
+    }
+}
+
+
+@media screen and (max-width:391px) {
+    .filter-more > label {
+        max-width: 90px;
+    }
+}
+
+@media screen and (max-width:321px) {
+    .filter-more > label {
+        max-width: 28px;
+    }
 }

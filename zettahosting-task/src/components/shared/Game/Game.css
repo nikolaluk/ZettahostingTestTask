@@ -39,3 +39,9 @@
         width: 357px;
     }
 }
+
+@media screen and (max-width: 321px) {
+    .game-div {
+        width: 280px;
+    }
+}

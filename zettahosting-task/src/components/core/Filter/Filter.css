@@ -118,3 +118,15 @@
         width: 357px;
     }
 }
+
+@media screen and (max-width: 321px) {
+    .filter-wrapper-split{
+        width: 280px;
+    }
+    .filter-wrapper-split-top {
+        width: 280px;
+    }
+    .filter-wrapper-split-bottom {
+        width: 280px;
+    }
+}

@@ -41,6 +41,10 @@
 }
 
 .dropdown-value {
+    white-space: nowrap;
+    max-width: 40px;
+    overflow: hidden;
+
     color: white;
     cursor: pointer;
 }
@@ -54,6 +58,17 @@
     background-color: #1A1C1D;
 }
 
+@media screen and (max-width: 1134px) {
+    .dropdown-value {
+        white-space: nowrap;
+        max-width: 120px;
+        overflow: hidden;
+    
+        color: white;
+        cursor: pointer;
+    }
+}
+
 @media screen and (max-width:568px) {
     .dropdown{
         width: 253px;
@@ -63,5 +78,11 @@
 @media screen and (max-width:391px) {
     .dropdown{
         width: 169px;
+    }
+}
+
+@media screen and (max-width:321px) {
+    .dropdown{
+        width: 130px;
     }
 }
