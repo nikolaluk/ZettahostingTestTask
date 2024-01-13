@@ -8,19 +8,28 @@ function Filter() {
 
     return (
         <div className="filter-wrapper">
-            <div className="filter-contents-left">
+            {/* Left filter content */}
+            <div className="filter-contents-left big">
                 <FilterTab data={{content: "All"}}></FilterTab>
                 <FilterTab data={{content: "Favourites"}}></FilterTab>
                 <FilterTab data={{content: "Popular"}}></FilterTab>
                 <FilterTab data={{content: "20% Cash Back"}}></FilterTab>
                 <FilterTabDropdown data={{content: "More"}}></FilterTabDropdown>
             </div>
-            <div className="filter-contents-left-small">
+            <div className="filter-contents-left small">
                 <FilterTabDropdown data={{content: "All"}}></FilterTabDropdown>
             </div>
-            <div className="filter-contents-right">
+
+            {/* Right filter content */}
+            <div className="filter-contents-right big">
                 <Dropdown data={{label: "By provider"}}></Dropdown>
                 <Dropdown data={{label: "By genre"}}></Dropdown>
+                <SearchInput></SearchInput>
+            </div>
+
+            <div className="filter-contents-right small">
+                <Dropdown data={{label: "By provider", compact: true}}></Dropdown>
+                <Dropdown data={{label: "By genre", compact: true}}></Dropdown>
                 <SearchInput></SearchInput>
             </div>
         </div>

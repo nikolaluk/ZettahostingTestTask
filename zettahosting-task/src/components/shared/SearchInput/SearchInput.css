@@ -12,8 +12,6 @@
 }
 
 .search-input > input {
-    width: 232px;
-
     font-size: 16px;
     font-weight: 400;
 
@@ -24,4 +22,23 @@
 
 .search-input > input:focus {
     outline: none;
+}
+
+.search-small {
+    display: none;
+}
+
+@media screen and (max-width: 1134px) {
+    .search-input {
+        width: 180px;
+    }
+
+    .search-big {
+        display: none;
+    }
+
+    .search-small {
+        display: flex;
+        width: 132px;
+    }
 }

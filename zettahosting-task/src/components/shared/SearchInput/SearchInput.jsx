@@ -6,7 +6,8 @@ function SearchInput() {
     return(
         <div className="search-input">
             <img src={searchImg} alt="da" />
-            <input type="text" placeholder="Search for game or provider"/>
+            <input type="text" placeholder="Search for game or provider" className="search-big"/>
+            <input type="text" placeholder="Search" className="search-small"/>
         </div>
     )
 }

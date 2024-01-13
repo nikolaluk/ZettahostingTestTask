@@ -11,6 +11,7 @@ import "./Dropdown.css"
 
 function Dropdown(data) {
     const label = data.data.label;
+    const compact = data.data.compact;
 
     const providers = jsonData.providers;
 
@@ -21,7 +22,7 @@ function Dropdown(data) {
     const { activeGenre } = useContext(CatalogContext);
 
     const dropdownProviderOptions = providers.map(provider => {
-        return <DropdownOption key={provider.id} data={{type: "provider", label: `${provider.name}`, icon: provider.logo, value: provider.id}}/>
+        return <DropdownOption key={provider.id} data={{ type: "provider", label: `${provider.name}`, icon: provider.logo, value: provider.id }} />
     })
 
     function closeOptionsOnOutsideClick(event) {
@@ -45,19 +46,34 @@ function Dropdown(data) {
     return (
         <div className="dropdown-wrapper">
             {/* Dropdown */}
-            <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
-                <label className="dropdown-label">{label}:</label>
+            {!compact ?
+                <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
+                    <label className="dropdown-label">{label}:</label>
 
-                {label == "By provider" &&
-                    <label className="dropdown-value">{activeProvider ? activeProvider.name : "all"}</label>
-                }
+                    {label == "By provider" &&
+                        <label className="dropdown-value">{activeProvider ? activeProvider.name : "all"}</label>
+                    }
 
-                {label == "By genre" &&
-                    <label className="dropdown-value">{activeGenre}</label>
-                }
+                    {label == "By genre" &&
+                        <label className="dropdown-value">{activeGenre}</label>
+                    }
 
-                <img className="dropdown-image" src={arrowImg} />
-            </div>
+                    <img className="dropdown-image" src={arrowImg} />
+                </div> :
+
+                <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
+                    {label == "By provider" &&
+                        <label className="dropdown-value">{activeProvider ? activeProvider.name : "all providers"}</label>
+                    }
+
+                    {label == "By genre" &&
+                        <label className="dropdown-value">{activeGenre == "all" ? "all genres" : activeGenre}</label>
+                    }
+
+                    <img className="dropdown-image" src={arrowImg} />
+                </div>
+            }
+
 
 
             {/* Options */}
@@ -69,10 +85,10 @@ function Dropdown(data) {
 
             {label == "By genre" && optionsVisible && (
                 <div className="dropdown-options-container">
-                    <DropdownOption data={{type:"genre", label: "Poker"}}/>
-                    <DropdownOption data={{type:"genre", label: "Slot"}}/>
-                    <DropdownOption data={{type:"genre", label: "Blackjack"}}/>
-                    <DropdownOption data={{type:"genre", label: "Rulet"}}/>
+                    <DropdownOption data={{ type: "genre", label: "Poker" }} />
+                    <DropdownOption data={{ type: "genre", label: "Slot" }} />
+                    <DropdownOption data={{ type: "genre", label: "Blackjack" }} />
+                    <DropdownOption data={{ type: "genre", label: "Rulet" }} />
                 </div>
             )}
         </div>

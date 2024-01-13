@@ -20,7 +20,7 @@
     gap: 4px;
 }
 
-.filter-contents-left-small {
+.small {
     display: none;
 }
 
@@ -29,12 +29,12 @@
         width: 861px;
     }
 
-    .filter-contents-left {
+    .big {
         display: none;
     }
 
-    .filter-contents-left-small {
-        display: inline;
+    .small {
+        display: flex;
     }
 }
 
@@ -43,26 +43,26 @@
         width: 864px;
     }
 
-    .filter-contents-left {
+    .big {
         display: none;
     }
 
-    .filter-contents-left-small {
-        display: inline;
+    .small {
+        display: flex;
     }
 }
 
 
-@media screen and (max-width: 744px){
+@media screen and (max-width: 844px){
     .filter-wrapper {
         width: 664px;
     }
 
-    .filter-contents-left {
+    .big {
         display: none;
     }
 
-    .filter-contents-left-small {
-        display: inline;
+    .small {
+        display: flex;
     }
 }
