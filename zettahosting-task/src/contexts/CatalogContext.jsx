@@ -4,6 +4,7 @@ import jsonData from "../data/data.json";
 const CatalogContext = createContext();
 CatalogContext.displayName = 'CatalogContext';
 
+// eslint-disable-next-line react/prop-types
 export const CatalogProvider = ({ children }) => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [activeProvider, setActiveProvider] = useState(null);
@@ -41,6 +42,7 @@ export const CatalogProvider = ({ children }) => {
         gamesToShow,
     }
 
+    //TODO: All of this can be exported in a service file
     useEffect(() => {
         if (gamesToShowChanged) {
             let temp = [];
@@ -63,7 +65,7 @@ export const CatalogProvider = ({ children }) => {
                     }
                 } else {
                     if (activeGenre == "all") {
-                        temp = gamesToShow;
+                        temp = allTemp;
                     } else {
                         for (let game of allTemp) {
                             if (game.genre == activeGenre.toLowerCase()) {

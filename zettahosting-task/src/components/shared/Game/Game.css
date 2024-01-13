@@ -1,5 +1,4 @@
 .game-div {
-    background-image: url("https://cdn.discordapp.com/attachments/473640300670353410/1153645171553079306/kamrader_slot_game_title_image_4418a8cf-9e7b-4b06-b034-96cd39d2dd1a.png");
     width: 285px;
     height: 245px;
 
@@ -7,4 +6,6 @@
 
     background-size: cover;
     background-position: center;
+
+    cursor: pointer;
 }

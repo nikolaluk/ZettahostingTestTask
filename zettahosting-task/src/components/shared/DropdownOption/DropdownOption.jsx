@@ -9,6 +9,7 @@ function DropdownOption(data) {
     const value = data.data.value;
 
     const {
+        changeActiveFilterHandler,
         changeActiveProviderHandler,
         changeActiveGenreHandler,
     } = useContext(CatalogContext);
@@ -23,6 +24,10 @@ function DropdownOption(data) {
 
             {type == "genre" &&
                 <div className="dropdown-option"  onClick={() => changeActiveGenreHandler(label)}>
+                    <label>{label}</label>
+                </div>}
+            {type == "filter" &&
+                <div className="dropdown-option"  onClick={() => changeActiveFilterHandler(label)}>
                     <label>{label}</label>
                 </div>}
         </>

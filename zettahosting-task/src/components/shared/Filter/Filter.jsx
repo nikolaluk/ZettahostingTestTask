@@ -1,4 +1,5 @@
 import Dropdown from "../Dropdown/Dropdown";
+import FilterMore from "../FilterMore/FilterMore";
 import FilterTab from "../FilterTab/FilterTab";
 import SearchInput from "../SearchInput/SearchInput";
 import "./Filter.css"
@@ -12,6 +13,7 @@ function Filter() {
                 <FilterTab data={{content: "Favourites"}}></FilterTab>
                 <FilterTab data={{content: "Popular"}}></FilterTab>
                 <FilterTab data={{content: "20% Cash Back"}}></FilterTab>
+                <FilterMore data={{content: "More"}}></FilterMore>
             </div>
             <div className="filter-contents-right">
                 <Dropdown data={{label: "By provider"}}></Dropdown>

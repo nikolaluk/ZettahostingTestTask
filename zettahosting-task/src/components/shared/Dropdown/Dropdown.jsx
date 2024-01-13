@@ -44,6 +44,7 @@ function Dropdown(data) {
 
     return (
         <div className="dropdown-wrapper">
+            {/* Dropdown */}
             <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
                 <label className="dropdown-label">{label}:</label>
 
@@ -58,6 +59,8 @@ function Dropdown(data) {
                 <img className="dropdown-image" src={arrowImg} />
             </div>
 
+
+            {/* Options */}
             {label == "By provider" && optionsVisible && (
                 <div className="dropdown-options-container">
                     {dropdownProviderOptions}
