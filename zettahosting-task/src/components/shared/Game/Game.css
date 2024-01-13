@@ -27,3 +27,15 @@
         width: 322px;
     }
 }
+
+@media screen and (max-width: 568px) {
+    .game-div {
+        width: 254px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .game-div {
+        width: 357px;
+    }
+}

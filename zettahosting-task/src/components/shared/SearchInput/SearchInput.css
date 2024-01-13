@@ -3,7 +3,6 @@
     gap: 8px;
 
     width: 280px;
-    height: 40px;
 
     background-color: #45494c;
     border-radius: 6px;
@@ -40,5 +39,17 @@
     .search-small {
         display: flex;
         width: 132px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .search-input {
+        width: 437px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .search-input {
+        width: 267px;
     }
 }

@@ -24,3 +24,15 @@
         width: 664px;
     }
 }
+
+@media screen and (max-width: 568px) {
+    .games-container {
+        width: 528px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .games-container {
+        width: 357px;
+    }
+}
