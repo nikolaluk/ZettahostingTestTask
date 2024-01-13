@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { applyFilter, applyGenre, applyProvider } from "../service/filtersService";
 import jsonData from "../data/data.json";
 
 const CatalogContext = createContext();
@@ -45,108 +46,10 @@ export const CatalogProvider = ({ children }) => {
     //TODO: All of this can be exported in a service file
     useEffect(() => {
         if (gamesToShowChanged) {
-            let temp = [];
-            if (activeFilter == "All") {
-                let allTemp = jsonData.games;
+            let temp = applyFilter(jsonData.games, activeFilter);
+            temp = applyProvider(temp, activeProvider);
+            temp = applyGenre(temp, activeGenre);
 
-                if (activeProvider) {
-                    if (activeGenre == "all") {
-                        for (let game of allTemp) {
-                            if (game.provider == activeProvider.id) {
-                                temp.push(game);
-                            }
-                        }
-                    } else {
-                        for (let game of allTemp) {
-                            if (game.provider == activeProvider.id && game.genre == activeGenre.toLowerCase()) {
-                                temp.push(game);
-                            }
-                        }
-                    }
-                } else {
-                    if (activeGenre == "all") {
-                        temp = allTemp;
-                    } else {
-                        for (let game of allTemp) {
-                            if (game.genre == activeGenre.toLowerCase()) {
-                                temp.push(game);
-                            }
-                        }
-                    }
-                }
-            } else if (activeFilter == "Favourites") {
-                let favTemp = []; 
-                for(let favourite of jsonData.favorites) {
-                    for(let game of jsonData.games) {
-                        if(game.id == favourite) {
-                            favTemp.push(game);
-                        }
-                    }
-                }
-
-                if (activeProvider) {
-                    if (activeGenre == "all") {
-                        for (let game of favTemp) {
-                            if (game.provider == activeProvider.id) {
-                                temp.push(game);
-                            }
-                        }
-                    } else {
-                        for (let game of favTemp) {
-                            if (game.provider == activeProvider.id && game.genre == activeGenre.toLowerCase()) {
-                                temp.push(game);
-                            }
-                        }
-                    }
-                } else {
-                    if (activeGenre == "all") {
-                        temp = favTemp;
-                    } else {
-                        for (let game of favTemp) {
-                            if (game.genre == activeGenre.toLowerCase()) {
-                                temp.push(game);
-                            }
-                        }
-                    }
-                }
-            } else if (activeFilter == "Popular") {
-                let popTemp = []; 
-                for(let popular of jsonData.popular) {
-                    for(let game of jsonData.games) {
-                        if(game.id == popular) {
-                            popTemp.push(game);
-                        }
-                    }
-                }
-
-                if (activeProvider) {
-                    if (activeGenre == "all") {
-                        for (let game of popTemp) {
-                            if (game.provider == activeProvider.id) {
-                                temp.push(game);
-                            }
-                        }
-                    } else {
-                        for (let game of popTemp) {
-                            if (game.provider == activeProvider.id && game.genre == activeGenre.toLowerCase()) {
-                                temp.push(game);
-                            }
-                        }
-                    }
-                } else {
-                    if (activeGenre == "all") {
-                        temp = popTemp;
-                    } else {
-                        for (let game of popTemp) {
-                            if (game.genre == activeGenre.toLowerCase()) {
-                                temp.push(game);
-                            }
-                        }
-                    }
-                }
-            } else {
-                setGamesToShow([]);
-            }
             setGamesToShow(temp);
             setGamesToShowChanged(false);
         }
