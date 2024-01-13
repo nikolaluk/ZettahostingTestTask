@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { applyFilter, applyGenre, applyProvider } from "../service/filtersService";
 import jsonData from "../data/data.json";
+import { searchReduce } from "../service/searchService";
 
 const CatalogContext = createContext();
 CatalogContext.displayName = 'CatalogContext';
@@ -10,6 +11,7 @@ export const CatalogProvider = ({ children }) => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [activeProvider, setActiveProvider] = useState(null);
     const [activeGenre, setActiveGenre] = useState('all');
+    const [activeSearchQuery, setActiveSearchQuery] = useState(null);
 
     const [gamesToShow, setGamesToShow] = useState(jsonData.games);
     const [gamesToShowChanged, setGamesToShowChanged] = useState(false);
@@ -33,13 +35,20 @@ export const CatalogProvider = ({ children }) => {
         setGamesToShowChanged(true);
     }
 
+    const changeActiveSearchQueryHandler = (query) => {
+        setActiveSearchQuery(query)
+        setGamesToShowChanged(true);
+    }
+
     const values = {
         changeActiveFilterHandler,
         changeActiveProviderHandler,
         changeActiveGenreHandler,
+        changeActiveSearchQueryHandler,
         activeFilter,
         activeProvider,
         activeGenre,
+        activeSearchQuery,
         gamesToShow,
     }
 
@@ -49,6 +58,7 @@ export const CatalogProvider = ({ children }) => {
             let temp = applyFilter(jsonData.games, activeFilter);
             temp = applyProvider(temp, activeProvider);
             temp = applyGenre(temp, activeGenre);
+            temp = searchReduce(temp, activeSearchQuery);
 
             setGamesToShow(temp);
             setGamesToShowChanged(false);

@@ -1,3 +1,5 @@
 export const searchReduce = (array, query)  => {
-    console.log('searching');
+    //TODO: implement search logic
+    
+    return array;
 }
