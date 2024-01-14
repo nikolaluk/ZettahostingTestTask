@@ -4,15 +4,31 @@ import CatalogContext from "../../../contexts/catalogContext";
 import Game from "../../shared/Game/Game";
 
 function GameContainer() {
-    const { gamesToShow } = useContext(CatalogContext);
-    
+    const { changeActiveFilterHandler,
+            changeActiveProviderHandler,
+            changeActiveGenreHandler,
+            changeActiveSearchQueryHandler, 
+            gamesToShow } = useContext(CatalogContext);
+
+    function resetFilterHandler() {
+        changeActiveFilterHandler("All");
+        changeActiveProviderHandler(null);
+        changeActiveGenreHandler("all");
+        changeActiveSearchQueryHandler('');
+    }
+
     const gamesElement = gamesToShow.map(game => {
-        return <Game key={game.id} data={game.image}/>
+        return <Game key={game.id} data={game.image} />
     })
-    
+
     return (
         <div className="games-container">
-          {gamesElement}
+            {gamesElement.length > 0 ?
+                gamesElement :
+                <div className="nothing-found">
+                    <p className="nothing-found-paragraph">Nothing was found for this query. Please change the query.</p>
+                    <p className="nothing-found-reset" onClick={resetFilterHandler}>Reset filter</p>
+                </div>}
         </div>
     )
 }

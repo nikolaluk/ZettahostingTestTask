@@ -11,7 +11,7 @@ export const CatalogProvider = ({ children }) => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [activeProvider, setActiveProvider] = useState(null);
     const [activeGenre, setActiveGenre] = useState('all');
-    const [activeSearchQuery, setActiveSearchQuery] = useState(null);
+    const [activeSearchQuery, setActiveSearchQuery] = useState('');
 
     const [gamesToShow, setGamesToShow] = useState(jsonData.games);
     const [gamesToShowChanged, setGamesToShowChanged] = useState(false);
@@ -24,14 +24,27 @@ export const CatalogProvider = ({ children }) => {
     const changeActiveProviderHandler = (id) => {
         for (let provider of jsonData.providers) {
             if (provider.id == id) {
-                setActiveProvider(provider);
+                if(activeProvider == null) {
+                    setActiveProvider(provider);
+                } else if (provider.id != activeProvider.id) {
+                    setActiveProvider(provider);
+                } else {
+                    setActiveProvider(null);
+                }
                 setGamesToShowChanged(true);
+                return;
             }
         }
+
+        setActiveProvider(null);
     }
 
     const changeActiveGenreHandler = (string) => {
-        setActiveGenre(string);
+        if(activeGenre != string) {
+            setActiveGenre(string);
+        } else {
+            setActiveGenre("all");
+        }
         setGamesToShowChanged(true);
     }
 
