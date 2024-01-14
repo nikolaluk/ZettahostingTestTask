@@ -1,5 +1,25 @@
+import data from "../data/data.json"
+
 export const searchReduce = (array, query)  => {
-    //TODO: implement search logic
+    const regexTemplate = new RegExp(query, 'gi')
+
+    let temp = [];
+
+    for(let game of array) {
+        if(regexTemplate.test(game.title) || regexTemplate.test(game.genre) || regexTemplate.test(returnProvider(game.provider).name)) {
+            temp.push(game);
+        }
+    }
     
-    return array;
+    return temp;
+}
+
+const returnProvider = (providerId) => {
+    for(let provider of data.providers) {
+        if(providerId == provider.id) {
+            return provider;
+        }
+    }
+
+    return null;
 }

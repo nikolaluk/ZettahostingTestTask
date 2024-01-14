@@ -52,7 +52,6 @@ export const CatalogProvider = ({ children }) => {
         gamesToShow,
     }
 
-    //TODO: All of this can be exported in a service file
     useEffect(() => {
         if (gamesToShowChanged) {
             let temp = applyFilter(jsonData.games, activeFilter);
@@ -64,7 +63,7 @@ export const CatalogProvider = ({ children }) => {
             setGamesToShowChanged(false);
         }
 
-    }, [activeFilter, activeProvider, activeGenre, gamesToShow, gamesToShowChanged]);
+    }, [activeFilter, activeProvider, activeGenre, activeSearchQuery, gamesToShow, gamesToShowChanged]);
 
     return (
         <CatalogContext.Provider value={values}>
