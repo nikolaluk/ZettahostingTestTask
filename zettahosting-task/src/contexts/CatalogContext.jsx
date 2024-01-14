@@ -49,7 +49,7 @@ export const CatalogProvider = ({ children }) => {
     }
 
     const changeActiveSearchQueryHandler = (query) => {
-        setActiveSearchQuery(query)
+        setActiveSearchQuery(query);
         setGamesToShowChanged(true);
     }
 
