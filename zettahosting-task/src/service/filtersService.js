@@ -3,11 +3,11 @@ import data from "../data/data.json"
 export const applyFilter = (array, filter) => {
     if(filter == "All") {
         return array;
-    } else if(filter == "Favourites") {
+    } else if(filter == "Favorites") {
         let temp = [];
-        for(let favourite of data.favorites) {
+        for(let favorite of data.favorites) {
             for(let game of array) {
-                if(game.id == favourite) {
+                if(game.id == favorite) {
                     temp.push(game);
                 }
             }

@@ -12,7 +12,7 @@ function Filter() {
                 {/* Left filter content */}
                 <div className="filter-contents-left">
                     <FilterTab data={{ content: "All" }}></FilterTab>
-                    <FilterTab data={{ content: "Favourites" }}></FilterTab>
+                    <FilterTab data={{ content: "Favorites" }}></FilterTab>
                     <FilterTab data={{ content: "Popular" }}></FilterTab>
                     <FilterTab data={{ content: "20% Cash Back" }}></FilterTab>
                     <FilterTabDropdown data={{ content: "More" }}></FilterTabDropdown>

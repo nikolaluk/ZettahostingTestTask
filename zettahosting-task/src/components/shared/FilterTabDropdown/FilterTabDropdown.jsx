@@ -36,8 +36,8 @@ function FilterMore(data) {
         <>
             {content == "More" &&
                 <div className="dropdown-wrapper">
-                    <div className={`filter-more ${activeFilter != "All" && activeFilter != "Favourites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? "active" : ""}`} onClick={dropdownClickHandler} ref={dropdownRef}>
-                        <label className="dropdown-value">{activeFilter != "All" && activeFilter != "Favourites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? activeFilter : content}</label>
+                    <div className={`filter-more ${activeFilter != "All" && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? "active" : ""}`} onClick={dropdownClickHandler} ref={dropdownRef}>
+                        <label className="dropdown-value">{activeFilter != "All" && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? activeFilter : content}</label>
                         <img src={arrowImg} />
                     </div>
                     {optionsVisible &&
@@ -59,7 +59,7 @@ function FilterMore(data) {
                     {optionsVisible &&
                         <div className="dropdown-options-container">
                             <DropdownOption data={{ type: "filter", label: "All" }} />
-                            <DropdownOption data={{ type: "filter", label: "Favourites" }} />
+                            <DropdownOption data={{ type: "filter", label: "Favorites" }} />
                             <DropdownOption data={{ type: "filter", label: "Popular" }} />
                             <DropdownOption data={{ type: "filter", label: "20% Cash Back" }} />
                             <DropdownOption data={{ type: "filter", label: "Bonus AI" }} />
