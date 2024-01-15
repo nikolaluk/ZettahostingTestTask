@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 
 import arrowImg from "../../../assets/rmx-arrow-down-s-line.svg";
 
-import CatalogContext from "../../../contexts/catalogContext";
+import CatalogContext from "../../../contexts/CatalogContext";
 import DropdownOption from "../DropdownOption/DropdownOption";
 
 import jsonData from "../../../data/data.json"
@@ -18,11 +18,15 @@ function Dropdown(data) {
     const [optionsVisible, setOptionsVisible] = useState(false);
     const dropdownRef = useRef(null);
 
-    const { activeProvider } = useContext(CatalogContext);
-    const { activeGenre } = useContext(CatalogContext);
+    //combined
+    const { activeProvider, activeGenre } = useContext(CatalogContext);
 
+    //instead of loading all providers every time, add a variable that comes from outside that contains the elements of the dropdown
+    //this will make the component more abstract and will allow the easier creation of dropdowns when needed
+    //and also you won't need to make the checks by label below
     const dropdownProviderOptions = providers.map(provider => {
-        return <DropdownOption key={provider.id} data={{ type: "provider", label: `${provider.name}`, icon: provider.logo, value: provider.id }} />
+        //provider.name is already a string
+        return <DropdownOption key={provider.id} data={{ type: "provider", label: provider.name, icon: provider.logo, value: provider.id }} />
     })
 
     function closeOptionsOnOutsideClick(event) {
@@ -46,6 +50,7 @@ function Dropdown(data) {
     return (
         <div className="dropdown-wrapper">
             {/* Dropdown */}
+            {/*You have too much code repetition in here, you may miss to update one of the version when making a change*/}
             {!compact ?
                 <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
                     <label className="dropdown-label">{label}:</label>

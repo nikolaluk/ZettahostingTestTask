@@ -8,6 +8,7 @@ CatalogContext.displayName = 'CatalogContext';
 
 // eslint-disable-next-line react/prop-types
 export const CatalogProvider = ({ children }) => {
+    //you may use null instead of 'All' here
     const [activeFilter, setActiveFilter] = useState('All');
     const [activeProvider, setActiveProvider] = useState(null);
     const [activeGenre, setActiveGenre] = useState('all');
@@ -24,9 +25,8 @@ export const CatalogProvider = ({ children }) => {
     const changeActiveProviderHandler = (id) => {
         for (let provider of jsonData.providers) {
             if (provider.id == id) {
-                if(activeProvider == null) {
-                    setActiveProvider(provider);
-                } else if (provider.id != activeProvider.id) {
+                //those were doing the same thing, we can use ||
+                if(activeProvider == null || provider.id != activeProvider.id) {
                     setActiveProvider(provider);
                 } else {
                     setActiveProvider(null);
@@ -39,9 +39,10 @@ export const CatalogProvider = ({ children }) => {
         setActiveProvider(null);
     }
 
-    const changeActiveGenreHandler = (string) => {
-        if(activeGenre != string) {
-            setActiveGenre(string);
+    //renamed string to genre so we know what exactly it is
+    const changeActiveGenreHandler = (genre) => {
+        if(activeGenre != genre) {
+            setActiveGenre(genre);
         } else {
             setActiveGenre("all");
         }
@@ -67,12 +68,16 @@ export const CatalogProvider = ({ children }) => {
 
     useEffect(() => {
         if (gamesToShowChanged) {
-            let temp = applyFilter(jsonData.games, activeFilter);
-            temp = applyProvider(temp, activeProvider);
-            temp = applyGenre(temp, activeGenre);
-            temp = searchReduce(temp, activeSearchQuery);
+            //looks a lot better when you use the reduce function
+            const filters = [
+                (games) => applyFilter(games, activeFilter),
+                (games) => applyProvider(games, activeProvider),
+                (games) => applyGenre(games, activeGenre),
+                (games) => searchReduce(games, activeSearchQuery),
+            ]
+            const games = filters.reduce((result, filterFn) => filterFn(result), jsonData.games);
 
-            setGamesToShow(temp);
+            setGamesToShow(games);
             setGamesToShowChanged(false);
         }
 

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import searchImg from "../../../assets/rmx-search-2-line.svg";
 
 import "./SearchInput.css"
-import CatalogContext from "../../../contexts/catalogContext";
+import CatalogContext from "../../../contexts/CatalogContext";
 
 function SearchInput() {
     const { activeSearchQuery, changeActiveSearchQueryHandler } = useContext(CatalogContext);

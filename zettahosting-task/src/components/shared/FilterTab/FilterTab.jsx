@@ -1,4 +1,4 @@
-import CatalogContext from "../../../contexts/catalogContext";
+import CatalogContext from "../../../contexts/CatalogContext";
 
 import { useContext } from "react";
 

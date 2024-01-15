@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import "./GameContainer.css"
-import CatalogContext from "../../../contexts/catalogContext";
+import CatalogContext from "../../../contexts/CatalogContext";
 import Game from "../../shared/Game/Game";
 
 function GameContainer() {
     const { changeActiveFilterHandler,
             changeActiveProviderHandler,
             changeActiveGenreHandler,
-            changeActiveSearchQueryHandler, 
+            changeActiveSearchQueryHandler,
             gamesToShow } = useContext(CatalogContext);
 
     function resetFilterHandler() {
