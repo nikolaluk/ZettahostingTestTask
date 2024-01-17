@@ -12,7 +12,7 @@ function FilterMore(data) {
     const [optionsVisible, setOptionsVisible] = useState(false);
     const dropdownRef = useRef(null);
 
-    const { activeFilter } = useContext(CatalogContext);
+    const { activeFilter, changeActiveFilterHandler } = useContext(CatalogContext);
 
     function closeOptionsOnOutsideClick(event) {
         //you can use ? to skip the null check
@@ -38,16 +38,16 @@ function FilterMore(data) {
             {content == "More" &&
                 <div className="dropdown-wrapper">
                     {/*you can make an array with those values and check if activeFilter is included*/}
-                    <div className={`filter-more ${activeFilter != "All" && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? "active" : ""}`} onClick={dropdownClickHandler} ref={dropdownRef}>
-                        <label className="dropdown-value">{activeFilter != "All" && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? activeFilter : content}</label>
+                    <div className={`filter-more ${activeFilter != null && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? "active" : ""}`} onClick={dropdownClickHandler} ref={dropdownRef}>
+                        <label className="dropdown-value">{activeFilter != null && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? activeFilter : content}</label>
                         <img src={arrowImg} />
                     </div>
                     {optionsVisible &&
                         <div className="dropdown-options-container">
-                            <DropdownOption data={{ type: "filter", label: "Bonus AI" }} />
-                            <DropdownOption data={{ type: "filter", label: "New" }} />
-                            <DropdownOption data={{ type: "filter", label: "PP Jackpot" }} />
-                            <DropdownOption data={{ type: "filter", label: "1.000.000 Euro Cash" }} />
+                            <DropdownOption data={{ label: "Bonus AI", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "New", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "PP Jackpot", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "1.000.000 Euro Cash", handler: changeActiveFilterHandler }} />
                         </div>
                     }
                 </div>}
@@ -60,14 +60,14 @@ function FilterMore(data) {
                     </div>
                     {optionsVisible &&
                         <div className="dropdown-options-container">
-                            <DropdownOption data={{ type: "filter", label: "All" }} />
-                            <DropdownOption data={{ type: "filter", label: "Favorites" }} />
-                            <DropdownOption data={{ type: "filter", label: "Popular" }} />
-                            <DropdownOption data={{ type: "filter", label: "20% Cash Back" }} />
-                            <DropdownOption data={{ type: "filter", label: "Bonus AI" }} />
-                            <DropdownOption data={{ type: "filter", label: "New" }} />
-                            <DropdownOption data={{ type: "filter", label: "PP Jackpot" }} />
-                            <DropdownOption data={{ type: "filter", label: "1.000.000 Euro Cash" }} />
+                            <DropdownOption data={{ label: "All", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "Favorites", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "Popular", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "20% Cash Back", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "Bonus AI", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "New", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "PP Jackpot", handler: changeActiveFilterHandler }} />
+                            <DropdownOption data={{ label: "1.000.000 Euro Cash", handler: changeActiveFilterHandler }} />
                         </div>
                     }
                 </div>

@@ -11,7 +11,7 @@ function GameContainer() {
             gamesToShow } = useContext(CatalogContext);
 
     function resetFilterHandler() {
-        changeActiveFilterHandler("All");
+        changeActiveFilterHandler(null);
         changeActiveProviderHandler(null);
         changeActiveGenreHandler("all");
         changeActiveSearchQueryHandler('');

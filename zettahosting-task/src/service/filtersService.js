@@ -1,7 +1,7 @@
 import data from "../data/data.json"
 
 export const applyFilter = (games, filter) => {
-    if (filter == "All") {
+    if (filter == null) {
         return games;
     }
 

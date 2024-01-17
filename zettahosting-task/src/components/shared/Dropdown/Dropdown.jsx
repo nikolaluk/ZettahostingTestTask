@@ -19,14 +19,18 @@ function Dropdown(data) {
     const dropdownRef = useRef(null);
 
     //combined
-    const { activeProvider, activeGenre } = useContext(CatalogContext);
+    const { 
+        activeProvider, 
+        activeGenre,
+        changeActiveProviderHandler,
+        changeActiveGenreHandler, } = useContext(CatalogContext);
 
     //instead of loading all providers every time, add a variable that comes from outside that contains the elements of the dropdown
     //this will make the component more abstract and will allow the easier creation of dropdowns when needed
     //and also you won't need to make the checks by label below
     const dropdownProviderOptions = providers.map(provider => {
         //provider.name is already a string
-        return <DropdownOption key={provider.id} data={{ type: "provider", label: provider.name, icon: provider.logo, value: provider.id }} />
+        return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
     })
 
     function closeOptionsOnOutsideClick(event) {
@@ -90,10 +94,10 @@ function Dropdown(data) {
 
             {label == "By genre" && optionsVisible && (
                 <div className="dropdown-options-container">
-                    <DropdownOption data={{ type: "genre", label: "Poker" }} />
-                    <DropdownOption data={{ type: "genre", label: "Slot" }} />
-                    <DropdownOption data={{ type: "genre", label: "Blackjack" }} />
-                    <DropdownOption data={{ type: "genre", label: "Rulet" }} />
+                    <DropdownOption data={{ label: "Poker", handler: changeActiveGenreHandler }} />
+                    <DropdownOption data={{ label: "Slot", handler: changeActiveGenreHandler }} />
+                    <DropdownOption data={{ label: "Blackjack", handler: changeActiveGenreHandler }} />
+                    <DropdownOption data={{ label: "Rulet", handler: changeActiveGenreHandler }} />
                 </div>
             )}
         </div>
