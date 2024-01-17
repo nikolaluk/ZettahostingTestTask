@@ -1,4 +1,4 @@
-import CatalogContext from "../../../contexts/catalogContext";
+import CatalogContext from "../../../contexts/CatalogContext";
 import arrowImg from "../../../assets/rmx-arrow-down-s-line white.svg";
 
 import { useContext, useEffect, useRef, useState } from "react";
@@ -15,7 +15,8 @@ function FilterMore(data) {
     const { activeFilter } = useContext(CatalogContext);
 
     function closeOptionsOnOutsideClick(event) {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        //you can use ? to skip the null check
+        if (!dropdownRef.current?.contains(event.target)) {
             setOptionsVisible(false);
         }
     }
@@ -36,6 +37,7 @@ function FilterMore(data) {
         <>
             {content == "More" &&
                 <div className="dropdown-wrapper">
+                    {/*you can make an array with those values and check if activeFilter is included*/}
                     <div className={`filter-more ${activeFilter != "All" && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? "active" : ""}`} onClick={dropdownClickHandler} ref={dropdownRef}>
                         <label className="dropdown-value">{activeFilter != "All" && activeFilter != "Favorites" && activeFilter != "Popular" && activeFilter != "20% Cash Back" ? activeFilter : content}</label>
                         <img src={arrowImg} />

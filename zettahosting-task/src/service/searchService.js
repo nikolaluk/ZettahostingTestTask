@@ -10,11 +10,13 @@ export const searchReduce = (array, query)  => {
             temp.push(game);
         }
     }
-    
+
     return temp;
 }
 
 const returnProvider = (providerId) => {
+
+    //todo you may use .find() here
     for(let provider of data.providers) {
         if(providerId == provider.id) {
             return provider;

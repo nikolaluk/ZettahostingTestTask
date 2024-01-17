@@ -3,43 +3,40 @@ import data from "../data/data.json"
 export const applyFilter = (array, filter) => {
     if(filter == "All") {
         return array;
-    } else if(filter == "Favorites") {
-        let temp = [];
+    }
+
+    //move the common variable outside, renamed it so we know what's it used for
+    let output = [];
+    if(filter == "Favorites") {
         for(let favorite of data.favorites) {
             for(let game of array) {
                 if(game.id == favorite) {
-                    temp.push(game);
+                    output.push(game);
                 }
             }
         }
-        return temp;
     } else if(filter == "Popular") {
-        let temp = [];
         for(let popular of data.popular) {
             for(let game of array) {
                 if(game.id == popular) {
-                    temp.push(game);
+                    output.push(game);
                 }
             }
         }
-        return temp;
-    } else {
-        return [];
     }
+
+    return output;
 }
 
-export const applyProvider =  (array, provider) => {
+//renamed array to games, so we know what's inside of it
+export const applyProvider =  (games, provider) => {
     if(provider == null) {
-        return array;
-    } else {
-        let temp = [];
-        for(let game of array) {
-            if(game.provider == provider.id) {
-                temp.push(game);
-            }
-        }
-        return temp;
+        return games;
     }
+
+    //you don't need else if you are returning in the if
+    //use filter instead of for and ifs for cleaner code
+    return games.filter(game => game.provider == provider.id);
 }
 
 export const applyGenre = (array, genre) => {

@@ -1,7 +1,7 @@
 import Filter from "../core/Filter/Filter"
 import GameContainer from "../core/GameContainer/GameContainer"
 
-import { CatalogProvider } from "../../contexts/catalogContext"
+import { CatalogProvider } from "../../contexts/CatalogContext"
 
 import "./Catalog.css"
 

@@ -11,6 +11,7 @@
     border-radius: 12px;
 }
 
+/*Those 2 have the same styling, check out SASS to make your code simpler */
 .filter-contents-left {
     display: flex;
     gap: 4px;

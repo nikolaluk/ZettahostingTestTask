@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CatalogContext from "../../../contexts/catalogContext";
+import CatalogContext from "../../../contexts/CatalogContext";
 
 import "./DropdownOption.css"
 
@@ -14,6 +14,8 @@ function DropdownOption(data) {
         changeActiveGenreHandler,
     } = useContext(CatalogContext);
 
+    //those options are almost the same, the only difference is the image and the onClick function
+    //add the function as a param to the component and display an image only if data.data.icon exists and this will get way easier to manage
     return (
         <>
             {type == "provider" &&
