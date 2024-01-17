@@ -9,7 +9,8 @@ CatalogContext.displayName = 'CatalogContext';
 // eslint-disable-next-line react/prop-types
 export const CatalogProvider = ({ children }) => {
     //you may use null instead of 'All' here
-    const [activeFilter, setActiveFilter] = useState('All');
+    //FIX: chnaged default state value to null
+    const [activeFilter, setActiveFilter] = useState(null);
     const [activeProvider, setActiveProvider] = useState(null);
     const [activeGenre, setActiveGenre] = useState('all');
     const [activeSearchQuery, setActiveSearchQuery] = useState('');

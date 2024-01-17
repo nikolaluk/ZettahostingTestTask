@@ -1,27 +1,16 @@
 import data from "../data/data.json"
 
-export const searchReduce = (array, query)  => {
+export const searchReduce = (games, query)  => {
     const regexTemplate = new RegExp(query, 'gi')
 
-    let temp = [];
-
-    for(let game of array) {
-        if(regexTemplate.test(game.title) || regexTemplate.test(game.genre) || regexTemplate.test(returnProvider(game.provider).name)) {
-            temp.push(game);
-        }
-    }
-
-    return temp;
+    // FIX: cleaned up fors and ifs using the filter function
+    return games.filter(game => 
+        regexTemplate.test(game.title) || 
+        regexTemplate.test(game.genre) || 
+        regexTemplate.test(returnProvider(game.provider).name));
 }
 
 const returnProvider = (providerId) => {
-
-    //todo you may use .find() here
-    for(let provider of data.providers) {
-        if(providerId == provider.id) {
-            return provider;
-        }
-    }
-
-    return null;
+    // FIX: cleaned up fors and ifs with .find() just like you suggested
+    return data.providers.find(provider => provider.id == providerId);
 }
