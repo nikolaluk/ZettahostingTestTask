@@ -13,7 +13,7 @@ function GameContainer() {
     function resetFilterHandler() {
         changeActiveFilterHandler(null);
         changeActiveProviderHandler(null);
-        changeActiveGenreHandler("all");
+        changeActiveGenreHandler(null);
         changeActiveSearchQueryHandler('');
     }
 

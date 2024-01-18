@@ -5,15 +5,18 @@ import FilterTab from "../../shared/FilterTab/FilterTab";
 import SearchInput from "../../shared/SearchInput/SearchInput";
 import CatalogContext from "../../../contexts/CatalogContext";
 
+
 import jsonData from "../../../data/data.json";
 
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 import "./Filter.css"
 
 function Filter() {
-    const { changeActiveProviderHandler, changeActiveGenreHandler } = useContext(CatalogContext);
+    const { changeActiveProviderHandler, changeActiveGenreHandler, changeActiveFilterHandler } = useContext(CatalogContext);
 
+
+    //TODO: Can probably export these files in a seperate file
     const dropdownProviderOptions = jsonData.providers.map(provider => {
         return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
     })
@@ -27,6 +30,19 @@ function Filter() {
         </>
     )
 
+    const dropdownTabOptions = (
+        <>
+            <DropdownOption data={{ label: "All", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "Favorites", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "Popular", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "20% Cash Back", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "Bonus AI", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "New", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "PP Jackpot", handler: changeActiveFilterHandler }} />
+            <DropdownOption data={{ label: "1.000.000 Euro Cash", handler: changeActiveFilterHandler }} />
+        </>
+    )
+
 
     return (
         <>
@@ -37,10 +53,10 @@ function Filter() {
                     <FilterTab data={{ content: "Favorites" }}></FilterTab>
                     <FilterTab data={{ content: "Popular" }}></FilterTab>
                     <FilterTab data={{ content: "20% Cash Back" }}></FilterTab>
-                    <FilterTabDropdown data={{ content: "More" }}></FilterTabDropdown>
+                    <FilterTabDropdown data={{ content: "More", options: React.Children.toArray(dropdownTabOptions.props.children).slice(4) }}></FilterTabDropdown>
                 </div>
                 <div className="filter-contents-left-small">
-                    <FilterTabDropdown data={{ content: "All" }}></FilterTabDropdown>
+                    <FilterTabDropdown data={{ content: "All", options: dropdownTabOptions }}></FilterTabDropdown>
                 </div>
 
                 {/* Right filter content */}
