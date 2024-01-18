@@ -29,7 +29,7 @@ export const applyProvider = (games, provider) => {
 }
 
 export const applyGenre = (games, genre) => {
-    if (genre == "all") {
+    if (genre == null) {
         return games;
     }
 

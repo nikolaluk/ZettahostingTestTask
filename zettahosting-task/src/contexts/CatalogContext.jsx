@@ -12,7 +12,7 @@ export const CatalogProvider = ({ children }) => {
     //FIX: chnaged default state value to null
     const [activeFilter, setActiveFilter] = useState(null);
     const [activeProvider, setActiveProvider] = useState(null);
-    const [activeGenre, setActiveGenre] = useState('all');
+    const [activeGenre, setActiveGenre] = useState(null);
     const [activeSearchQuery, setActiveSearchQuery] = useState('');
 
     const [gamesToShow, setGamesToShow] = useState(jsonData.games);
@@ -49,7 +49,7 @@ export const CatalogProvider = ({ children }) => {
         if(activeGenre != genre) {
             setActiveGenre(genre);
         } else {
-            setActiveGenre("all");
+            setActiveGenre(null);
         }
         setGamesToShowChanged(true);
     }

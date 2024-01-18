@@ -38,33 +38,19 @@ function Dropdown(data) {
         <div className="dropdown-wrapper">
             {/* Dropdown */}
             {/*You have too much code repetition in here, you may miss to update one of the version when making a change*/}
-            {!compact ?
-                <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
-                    <label className="dropdown-label">{label}:</label>
+            <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
+                {!compact && <label className="dropdown-label">{label}:</label>}
 
-                    {label == "By provider" &&
-                        <label className="dropdown-value">{activeProvider ? activeProvider.name : "all"}</label>
-                    }
+                {label == "By provider" &&
+                    <label className="dropdown-value">{activeProvider ? activeProvider.name : (compact ? "all providers" : "all")}</label>
+                }
 
-                    {label == "By genre" &&
-                        <label className="dropdown-value">{activeGenre}</label>
-                    }
+                {label == "By genre" &&
+                    <label className="dropdown-value">{activeGenre ? activeGenre : (compact ? "all genres" : "all")}</label>
+                }
 
-                    <img className="dropdown-image" src={arrowImg} />
-                </div> :
-
-                <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
-                    {label == "By provider" &&
-                        <label className="dropdown-value">{activeProvider ? activeProvider.name : "all providers"}</label>
-                    }
-
-                    {label == "By genre" &&
-                        <label className="dropdown-value">{activeGenre == "all" ? "all genres" : activeGenre}</label>
-                    }
-
-                    <img className="dropdown-image" src={arrowImg} />
-                </div>
-            }
+                <img className="dropdown-image" src={arrowImg} />
+            </div>
 
             {/* Options */}
             {optionsVisible && (
