@@ -24,8 +24,7 @@ export const applyProvider = (games, provider) => {
         return games;
     }
 
-    //you don't need else if you are returning in the if
-    //use filter instead of for and ifs for cleaner code
+    // FIX: cleaned up fors and ifs using the filter function
     return games.filter(game => game.provider == provider.id);
 }
 

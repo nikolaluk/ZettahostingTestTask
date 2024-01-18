@@ -18,8 +18,13 @@ export const CatalogProvider = ({ children }) => {
     const [gamesToShow, setGamesToShow] = useState(jsonData.games);
     const [gamesToShowChanged, setGamesToShowChanged] = useState(false);
 
-    const changeActiveFilterHandler = (string) => {
-        setActiveFilter(string);
+    // const dropdownProviderOptions = jsonData.providers.map(provider => {
+    //     //provider.name is already a string
+    //     return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
+    // })
+
+    const changeActiveFilterHandler = (filter) => {
+        setActiveFilter(filter);
         setGamesToShowChanged(true);
     }
 
@@ -40,7 +45,6 @@ export const CatalogProvider = ({ children }) => {
         setActiveProvider(null);
     }
 
-    //renamed string to genre so we know what exactly it is
     const changeActiveGenreHandler = (genre) => {
         if(activeGenre != genre) {
             setActiveGenre(genre);
@@ -69,7 +73,6 @@ export const CatalogProvider = ({ children }) => {
 
     useEffect(() => {
         if (gamesToShowChanged) {
-            //looks a lot better when you use the reduce function
             const filters = [
                 (games) => applyFilter(games, activeFilter),
                 (games) => applyProvider(games, activeProvider),

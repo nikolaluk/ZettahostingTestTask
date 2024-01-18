@@ -3,35 +3,18 @@ import { useContext, useEffect, useRef, useState } from "react";
 import arrowImg from "../../../assets/rmx-arrow-down-s-line.svg";
 
 import CatalogContext from "../../../contexts/CatalogContext";
-import DropdownOption from "../DropdownOption/DropdownOption";
-
-import jsonData from "../../../data/data.json"
 
 import "./Dropdown.css"
 
 function Dropdown(data) {
     const label = data.data.label;
     const compact = data.data.compact;
-
-    const providers = jsonData.providers;
+    const options = data.data.options;
 
     const [optionsVisible, setOptionsVisible] = useState(false);
     const dropdownRef = useRef(null);
 
-    //combined
-    const { 
-        activeProvider, 
-        activeGenre,
-        changeActiveProviderHandler,
-        changeActiveGenreHandler, } = useContext(CatalogContext);
-
-    //instead of loading all providers every time, add a variable that comes from outside that contains the elements of the dropdown
-    //this will make the component more abstract and will allow the easier creation of dropdowns when needed
-    //and also you won't need to make the checks by label below
-    const dropdownProviderOptions = providers.map(provider => {
-        //provider.name is already a string
-        return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
-    })
+    const { activeProvider, activeGenre } = useContext(CatalogContext);
 
     function closeOptionsOnOutsideClick(event) {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -83,21 +66,10 @@ function Dropdown(data) {
                 </div>
             }
 
-
-
             {/* Options */}
-            {label == "By provider" && optionsVisible && (
+            {optionsVisible && (
                 <div className="dropdown-options-container">
-                    {dropdownProviderOptions}
-                </div>
-            )}
-
-            {label == "By genre" && optionsVisible && (
-                <div className="dropdown-options-container">
-                    <DropdownOption data={{ label: "Poker", handler: changeActiveGenreHandler }} />
-                    <DropdownOption data={{ label: "Slot", handler: changeActiveGenreHandler }} />
-                    <DropdownOption data={{ label: "Blackjack", handler: changeActiveGenreHandler }} />
-                    <DropdownOption data={{ label: "Rulet", handler: changeActiveGenreHandler }} />
+                    {options}
                 </div>
             )}
         </div>

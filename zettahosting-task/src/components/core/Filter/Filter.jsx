@@ -1,10 +1,32 @@
 import Dropdown from "../../shared/Dropdown/Dropdown";
+import DropdownOption from "../../shared/DropdownOption/DropdownOption";
 import FilterTabDropdown from "../../shared/FilterTabDropdown/FilterTabDropdown";
 import FilterTab from "../../shared/FilterTab/FilterTab";
 import SearchInput from "../../shared/SearchInput/SearchInput";
+import CatalogContext from "../../../contexts/CatalogContext";
+
+import jsonData from "../../../data/data.json";
+
+import { useContext } from "react";
+
 import "./Filter.css"
 
 function Filter() {
+    const { changeActiveProviderHandler, changeActiveGenreHandler } = useContext(CatalogContext);
+
+    const dropdownProviderOptions = jsonData.providers.map(provider => {
+        return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
+    })
+
+    const dropdownGenreOptions = (
+        <>
+            <DropdownOption data={{ label: "Poker", handler: changeActiveGenreHandler }} />
+            <DropdownOption data={{ label: "Slot", handler: changeActiveGenreHandler }} />
+            <DropdownOption data={{ label: "Blackjack", handler: changeActiveGenreHandler }} />
+            <DropdownOption data={{ label: "Rulet", handler: changeActiveGenreHandler }} />
+        </>
+    )
+
 
     return (
         <>
@@ -23,14 +45,14 @@ function Filter() {
 
                 {/* Right filter content */}
                 <div className="filter-contents-right">
-                    <Dropdown data={{ label: "By provider" }}></Dropdown>
-                    <Dropdown data={{ label: "By genre" }}></Dropdown>
+                    <Dropdown data={{ label: "By provider", options: dropdownProviderOptions }}></Dropdown>
+                    <Dropdown data={{ label: "By genre", options: dropdownGenreOptions }}></Dropdown>
                     <SearchInput></SearchInput>
                 </div>
 
                 <div className="filter-contents-right-small">
-                    <Dropdown data={{ label: "By provider", compact: true }}></Dropdown>
-                    <Dropdown data={{ label: "By genre", compact: true }}></Dropdown>
+                    <Dropdown data={{ label: "By provider", options: dropdownProviderOptions, compact: true }}></Dropdown>
+                    <Dropdown data={{ label: "By genre", options: dropdownGenreOptions, compact: true }}></Dropdown>
                     <SearchInput></SearchInput>
                 </div>
             </div>
@@ -43,9 +65,9 @@ function Filter() {
                 </div>
 
                 {/* Right split filter content */}
-                <div className="filter-wrapper-split-bottom"> 
-                    <Dropdown data={{ label: "By provider", compact: true }}></Dropdown>
-                    <Dropdown data={{ label: "By genre", compact: true }}></Dropdown>
+                <div className="filter-wrapper-split-bottom">
+                    <Dropdown data={{ label: "By provider", options: dropdownProviderOptions, compact: true }}></Dropdown>
+                    <Dropdown data={{ label: "By genre", options: dropdownGenreOptions, compact: true }}></Dropdown>
                 </div>
             </div>
         </>
