@@ -37,8 +37,11 @@ function FilterMore(data) {
     return (
         <>
             <div className="dropdown-wrapper">
-                {/*you can make an array with those values and check if activeFilter is included*/}
-                <div className={`filter-more ${content == "All" ? "active" : (activeFilter != null && !filterValues.includes(activeFilter) ? "active" : "")}`} onClick={dropdownClickHandler} ref={dropdownRef}>
+                <div 
+                    className={`filter-more ${content == "All" ? "active" : (activeFilter != null && !filterValues.includes(activeFilter) ? "active" : "")}`} 
+                    onClick={dropdownClickHandler} 
+                    ref={dropdownRef}
+                >
                     <label className="dropdown-value">{content == "All" ? (activeFilter ? activeFilter : "All") : (!filterValues.includes(activeFilter) ? activeFilter : "More")}</label>
                     <img src={arrowImg} />
                 </div>

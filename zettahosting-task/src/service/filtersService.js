@@ -5,7 +5,7 @@ export const applyFilter = (games, filter) => {
         return games;
     }
 
-    //move the common variable outside, renamed it so we know what's it used for
+    //FIX: Moved variable out and replaced for cycles with lambdas
     let output = [];
     if (filter == "Favorites") {
         data.favorites.forEach(favorite =>

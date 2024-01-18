@@ -12,7 +12,10 @@ function FilterTab(data) {
     return (
         // FIX: altered the class conditions because of activeFilter default value changed to null
         // TODO: theres probably a cleaner way to do the class and function params conditions will check it out
-        <div className={`filter-tab ${activeFilter == content ? "active" : activeFilter == null && content == "All" ? "active" : ""}`} onClick={() => changeActiveFilterHandler(content != "All" ? content : null)}>
+        <div 
+            className={`filter-tab ${activeFilter == content ? "active" : activeFilter == null && content == "All" ? "active" : ""}`} 
+            onClick={() => changeActiveFilterHandler(content != "All" ? content : null)}
+        >
             <label>{content}</label>
         </div>
     )
