@@ -15,7 +15,6 @@ import "./Filter.css"
 function Filter() {
     const { changeActiveProviderHandler, changeActiveGenreHandler, changeActiveFilterHandler } = useContext(CatalogContext);
 
-
     //TODO: Can probably export these files in a seperate file
     const dropdownProviderOptions = jsonData.providers.map(provider => {
         return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
