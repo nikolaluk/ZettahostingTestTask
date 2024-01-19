@@ -1,10 +1,13 @@
 .games-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     gap: 20px;
 
     width: 1200px;
+
+    max-width: 96vw;
 }
 
 .nothing-found {
@@ -34,6 +37,8 @@
 @media screen and (max-width: 1134px) {
     .games-container {
         width: 861px;
+
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
@@ -46,10 +51,12 @@
 @media screen and (max-width: 844px) {
     .games-container {
         width: 664px;
+
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 692px) {
     .games-container {
         width: 528px;
     }
@@ -58,6 +65,7 @@
 @media screen and (max-width: 391px) {
     .games-container {
         width: 357px;
+        grid-template-columns: 1fr;
     }
 }
 

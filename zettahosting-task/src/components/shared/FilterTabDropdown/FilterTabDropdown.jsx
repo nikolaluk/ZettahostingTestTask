@@ -42,7 +42,7 @@ function FilterMore(data) {
                     onClick={dropdownClickHandler} 
                     ref={dropdownRef}
                 >
-                    <label className="dropdown-value">{content == "All" ? (activeFilter ? activeFilter : "All") : (!filterValues.includes(activeFilter) ? activeFilter : "More")}</label>
+                    <label className="dropdown-value">{content == "All" ? (activeFilter ? activeFilter : "All") : (activeFilter != null && !filterValues.includes(activeFilter) ? activeFilter : "More")}</label>
                     <img src={arrowImg} />
                 </div>
                 {optionsVisible &&

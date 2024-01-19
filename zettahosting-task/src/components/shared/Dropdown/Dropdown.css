@@ -68,21 +68,3 @@
         cursor: pointer;
     }
 }
-
-@media screen and (max-width:568px) {
-    .dropdown{
-        width: 253px;
-    }
-}
-
-@media screen and (max-width:391px) {
-    .dropdown{
-        width: 169px;
-    }
-}
-
-@media screen and (max-width:321px) {
-    .dropdown{
-        width: 130px;
-    }
-}

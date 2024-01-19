@@ -1,5 +1,5 @@
 .game-div {
-    width: 285px;
+    /* width: 285px; */
     height: 245px;
 
     border-radius: 12px;
@@ -10,7 +10,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1134px){
+/* @media screen and (max-width: 1134px){
     .game-div {
         width: 273px;
     }
@@ -44,4 +44,4 @@
     .game-div {
         width: 280px;
     }
-}
+} */

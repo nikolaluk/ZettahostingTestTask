@@ -8,8 +8,7 @@ CatalogContext.displayName = 'CatalogContext';
 
 // eslint-disable-next-line react/prop-types
 export const CatalogProvider = ({ children }) => {
-    //you may use null instead of 'All' here
-    //FIX: chnaged default state value to null
+    //FIX: chnaged default state values to null
     const [activeFilter, setActiveFilter] = useState(null);
     const [activeProvider, setActiveProvider] = useState(null);
     const [activeGenre, setActiveGenre] = useState(null);
@@ -17,11 +16,6 @@ export const CatalogProvider = ({ children }) => {
 
     const [gamesToShow, setGamesToShow] = useState(jsonData.games);
     const [gamesToShowChanged, setGamesToShowChanged] = useState(false);
-
-    // const dropdownProviderOptions = jsonData.providers.map(provider => {
-    //     //provider.name is already a string
-    //     return <DropdownOption key={provider.id} data={{ label: provider.name, icon: provider.logo, value: provider.id, handler: changeActiveProviderHandler }} />
-    // })
 
     const changeActiveFilterHandler = (filter) => {
         setActiveFilter(filter);
@@ -31,7 +25,6 @@ export const CatalogProvider = ({ children }) => {
     const changeActiveProviderHandler = (id) => {
         for (let provider of jsonData.providers) {
             if (provider.id == id) {
-                //those were doing the same thing, we can use ||
                 if(activeProvider == null || provider.id != activeProvider.id) {
                     setActiveProvider(provider);
                 } else {

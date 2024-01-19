@@ -1,7 +1,7 @@
 .filter-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
     width: 1200px;
     height: 56px;
 
@@ -9,6 +9,8 @@
 
     background-color: #292C2F;
     border-radius: 12px;
+
+    max-width: 96vw;
 }
 
 /*Those 2 have the same styling, check out SASS to make your code simpler */
@@ -19,11 +21,13 @@
 
 .filter-contents-right {
     display: flex;
+    justify-content: flex-end;
     gap: 4px;
 }
 
 .filter-contents-right-small {
     display: none;
+    justify-content: flex-end;
     gap: 4px;
 }
 
@@ -40,13 +44,14 @@
     gap: 8px;
 
     width: 528px;
+    max-width: 96vw;
 }
 
 .filter-wrapper-split-top {
     display: flex;
     justify-content: space-between;
 
-    width: 528px;
+    width: 100%;
     padding: 8px;
 
     background-color: #292C2F;
@@ -54,27 +59,31 @@
 }
 
 .filter-wrapper-split-bottom {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-    width: 528px;
+    width: 100%;
+    gap: 4px;
+
     padding: 8px;
 
     background-color: #292C2F;
     border-radius: 12px;
 }
 
-@media screen and (max-width: 1134px){
-    .filter-wrapper {
-        width: 861px;
-    }
-
+@media screen and (max-width: 1242px) {
     .filter-contents-left {
         display: none;
     }
 
     .filter-contents-left-small {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 1134px){
+    .filter-wrapper {
+        width: 861px;
     }
 }
 
@@ -98,7 +107,7 @@
     }
 }
 
-@media screen and (max-width: 568px){
+@media screen and (max-width: 692px){
     .filter-wrapper {
         display: none;
     }
@@ -112,22 +121,10 @@
     .filter-wrapper-split{
         width: 357px;
     }
-    .filter-wrapper-split-top {
-        width: 357px;
-    }
-    .filter-wrapper-split-bottom {
-        width: 357px;
-    }
 }
 
 @media screen and (max-width: 321px) {
     .filter-wrapper-split{
-        width: 280px;
-    }
-    .filter-wrapper-split-top {
-        width: 280px;
-    }
-    .filter-wrapper-split-bottom {
         width: 280px;
     }
 }
