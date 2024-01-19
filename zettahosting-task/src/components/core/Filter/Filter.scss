@@ -3,6 +3,7 @@ $border-radius: 12px;
 $background-color: #292C2F;
 
 //NOTE: it might be better to split filter-wrapper and filter-wrapper-split and have each one have its own hierarchy
+//but that will require seperate media queries so I will leave it like this I think its more readable :)
 
 .filter-wrapper {
     display: grid;
