@@ -49,16 +49,3 @@
         width: 437px;
     }
 }
-
-@media screen and (max-width: 391px) {
-    .search-input {
-        width: 267px;
-    }
-}
-
-
-@media screen and (max-width: 321px) {
-    .search-input {
-        width: 189px;
-    }
-}
