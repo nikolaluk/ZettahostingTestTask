@@ -75,7 +75,7 @@ function Filter() {
             <div className="filter-wrapper-split">
                 {/* Left split filter content */}
                 <div className="filter-wrapper-split-top">
-                    <FilterTabDropdown data={{ content: "All" }}></FilterTabDropdown>
+                    <FilterTabDropdown data={{ content: "All", options: dropdownTabOptions }}></FilterTabDropdown>
                     <SearchInput></SearchInput>
                 </div>
 
