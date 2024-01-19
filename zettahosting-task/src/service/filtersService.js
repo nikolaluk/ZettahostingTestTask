@@ -5,20 +5,14 @@ export const applyFilter = (games, filter) => {
         return games;
     }
 
-    //FIX: Moved variable out and replaced for cycles with lambdas
     let output = [];
-    if (filter == "Favorites") {
-        data.favorites.forEach(favorite =>
-            output.push(games.find(game => game.id == favorite)));
-    } else if (filter == "Popular") {
-        data.popular.forEach(popular =>
-            output.push(games.find(game => game.id == popular)));
-    }
+    //FIX: Combined conditions by using [] syntax for object
+    data[filter.toLowerCase()].forEach(filterId => 
+        output.push(games.find(game => game.id == filterId)));
 
     return output;
 }
 
-//renamed array to games, so we know what's inside of it
 export const applyProvider = (games, provider) => {
     if (provider == null) {
         return games;
