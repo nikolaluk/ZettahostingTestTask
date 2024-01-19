@@ -2,10 +2,13 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
 
+    align-items: center;
+
     width: 1200px;
     height: 56px;
 
-    padding: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
 
     background-color: #292C2F;
     border-radius: 12px;
