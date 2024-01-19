@@ -2,7 +2,7 @@ import CatalogContext from "../../../contexts/CatalogContext";
 
 import { useContext } from "react";
 
-import "./FilterTab.css"
+import "./FilterTab.scss"
 
 function FilterTab(data) {
     const content = data.data.content;

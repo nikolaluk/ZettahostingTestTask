@@ -4,7 +4,7 @@ import arrowImg from "../../../assets/rmx-arrow-down-s-line.svg";
 
 import CatalogContext from "../../../contexts/CatalogContext";
 
-import "./Dropdown.css"
+import "./Dropdown.scss"
 
 function Dropdown(data) {
     const label = data.data.label;

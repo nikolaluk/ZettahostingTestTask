@@ -3,7 +3,7 @@ import arrowImg from "../../../assets/rmx-arrow-down-s-line white.svg";
 
 import { useContext, useEffect, useRef, useState } from "react";
 
-import "./FilterTabDropdown.css"
+import "./FilterTabDropdown.scss"
 
 function FilterMore(data) {
     const content = data.data.content;

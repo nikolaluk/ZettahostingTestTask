@@ -3,7 +3,7 @@ import GameContainer from "../core/GameContainer/GameContainer"
 
 import { CatalogProvider } from "../../contexts/CatalogContext"
 
-import "./Catalog.css"
+import "./Catalog.scss"
 
 function Catalog() {
 

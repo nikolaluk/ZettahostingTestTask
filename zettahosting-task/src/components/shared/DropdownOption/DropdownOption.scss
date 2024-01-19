@@ -1,0 +1,24 @@
+$border-radius: 4px;
+$background-color: white;
+$hover-background-color: #F5F8FA;
+
+.dropdown-option {
+    display: flex;
+    gap: 4px;
+
+    padding: 12px;
+    border-radius: $border-radius;
+    background-color: $background-color;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $background-color;
+    }
+
+    > label, > img {
+        cursor: pointer;
+    }
+}

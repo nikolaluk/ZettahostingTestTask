@@ -1,0 +1,117 @@
+$gap: 4px;
+$border-radius: 12px;
+$background-color: #292C2F;
+
+//NOTE: it might be better to split filter-wrapper and filter-wrapper-split and have each one have its own hierarchy
+
+.filter-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    align-items: center;
+
+    width: 1200px;
+    height: 56px;
+
+    padding: 0 8px;
+
+    background-color: $background-color;
+    border-radius: $border-radius;
+
+    max-width: 96vw;
+
+    &-split {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+
+        width: 528px;
+        max-width: 96vw;
+
+        &-top,
+        &-bottom {
+            display: flex;
+
+            width: 100%;
+            padding: 8px;
+
+            background-color: $background-color;
+            border-radius: $border-radius;
+        }
+
+        &-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $gap;
+        }
+    }
+
+    &-contents-left,
+    &-contents-right,
+    &-contents-right-small,
+    &-contents-left-small {
+        display: flex;
+        gap: $gap;
+    }
+
+    &-contents-right,
+    &-contents-right-small {
+        justify-content: flex-end;
+    }
+
+    &-contents-right-small,
+    &-contents-left-small {
+        display: none;
+    }
+
+    @media screen and (max-width: 1242px) {
+        &-contents-left {
+            display: none;
+        }
+
+        &-contents-left-small {
+            display: flex;
+        }
+    }
+
+    @media screen and (max-width: 1134px) {
+        width: 861px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: 864px;
+    }
+
+    @media screen and (max-width: 852px) {
+        width: 664px;
+
+        &-contents-right {
+            display: none;
+        }
+
+        &-contents-right-small {
+            display: flex;
+        }
+    }
+
+    @media screen and (max-width: 692px) {
+        display: none;
+
+        &-split {
+            display: flex;
+        }
+    }
+
+    @media screen and (max-width: 391px) {
+        &-split {
+            width: 357px;
+        }
+    }
+
+    @media screen and (max-width: 321px) {
+        &-split {
+            width: 280px;
+        }
+    }
+
+}

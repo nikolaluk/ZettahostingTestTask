@@ -1,4 +1,4 @@
-import "./DropdownOption.css"
+import "./DropdownOption.scss"
 
 function DropdownOption(data) {
     const label = data.data.label;

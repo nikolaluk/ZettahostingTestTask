@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import "./GameContainer.css"
 import CatalogContext from "../../../contexts/CatalogContext";
 import Game from "../../shared/Game/Game";
+import "./GameContainer.scss"
 
 function GameContainer() {
     const { changeActiveFilterHandler,

@@ -1,0 +1,31 @@
+$border-radius: 6px;
+$background-color: #292C2F;
+$hover-background-color: #1A1C1D;
+$active-background-color: #00C471;
+$text-color: white;
+
+.filter-tab {
+  display: flex;
+  padding: 12px 16px;
+  
+  border-radius: $border-radius;
+  color: $text-color;
+  background-color: $background-color;
+  cursor: pointer;
+
+  > label {
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: $hover-background-color;
+  }
+
+  &.active {
+    background-color: $active-background-color;
+  }
+}

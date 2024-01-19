@@ -10,7 +10,7 @@ import jsonData from "../../../data/data.json";
 
 import React, { useContext } from "react";
 
-import "./Filter.css"
+import "./Filter.scss"
 
 function Filter() {
     const { changeActiveProviderHandler, changeActiveGenreHandler, changeActiveFilterHandler } = useContext(CatalogContext);
@@ -47,25 +47,25 @@ function Filter() {
         <>
             <div className="filter-wrapper">
                 {/* Left filter content */}
-                <div className="filter-contents-left">
+                <div className="filter-wrapper-contents-left">
                     <FilterTab data={{ content: "All" }}></FilterTab>
                     <FilterTab data={{ content: "Favorites" }}></FilterTab>
                     <FilterTab data={{ content: "Popular" }}></FilterTab>
                     <FilterTab data={{ content: "20% Cash Back" }}></FilterTab>
                     <FilterTabDropdown data={{ content: "More", options: React.Children.toArray(dropdownTabOptions.props.children).slice(4) }}></FilterTabDropdown>
                 </div>
-                <div className="filter-contents-left-small">
+                <div className="filter-wrapper-contents-left-small">
                     <FilterTabDropdown data={{ content: "All", options: dropdownTabOptions }}></FilterTabDropdown>
                 </div>
 
                 {/* Right filter content */}
-                <div className="filter-contents-right">
+                <div className="filter-wrapper-contents-right">
                     <Dropdown data={{ label: "By provider", options: dropdownProviderOptions }}></Dropdown>
                     <Dropdown data={{ label: "By genre", options: dropdownGenreOptions }}></Dropdown>
                     <SearchInput></SearchInput>
                 </div>
 
-                <div className="filter-contents-right-small">
+                <div className="filter-wrapper-contents-right-small">
                     <Dropdown data={{ label: "By provider", options: dropdownProviderOptions, compact: true }}></Dropdown>
                     <Dropdown data={{ label: "By genre", options: dropdownGenreOptions, compact: true }}></Dropdown>
                     <SearchInput></SearchInput>

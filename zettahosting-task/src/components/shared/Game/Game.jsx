@@ -1,4 +1,4 @@
-import "./Game.css"
+import "./Game.scss"
 
 function Game(data) {
   const image = data.data;

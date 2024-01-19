@@ -1,0 +1,59 @@
+$gap: 20px;
+
+.games-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: $gap;
+  width: 1200px;
+  max-width: 96vw;
+
+  @media screen and (max-width: 1134px) {
+    width: 861px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 864px;
+  }
+
+  @media screen and (max-width: 852px) {
+    width: 664px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 692px) {
+    width: 528px;
+  }
+
+  @media screen and (max-width: 391px) {
+    width: 357px;
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: 321px) {
+    width: 280px;
+  }
+}
+
+.nothing-found {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  margin-top: 80px;
+
+  &-paragraph,
+  &-reset {
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+
+  &-paragraph {
+    color: #93a1ad;
+  }
+
+  &-reset {
+    color: #f03535;
+    cursor: pointer;
+  }
+}
