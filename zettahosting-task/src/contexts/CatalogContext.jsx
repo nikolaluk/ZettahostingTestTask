@@ -23,23 +23,17 @@ export const CatalogProvider = ({ children }) => {
     }
 
     const changeActiveProviderHandler = (id) => {
-        for (let provider of jsonData.providers) {
-            if (provider.id == id) {
-                if(activeProvider == null || provider.id != activeProvider.id) {
-                    setActiveProvider(provider);
-                } else {
-                    setActiveProvider(null);
-                }
-                setGamesToShowChanged(true);
-                return;
-            }
+        if (activeProvider == null || activeProvider.id != id) {
+            setActiveProvider(jsonData.providers.find(provider => provider.id == id));
+        } else if(activeProvider.id == id) {
+            setActiveProvider(null);
         }
 
-        setActiveProvider(null);
+        setGamesToShowChanged(true);
     }
 
     const changeActiveGenreHandler = (genre) => {
-        if(activeGenre != genre) {
+        if (activeGenre != genre) {
             setActiveGenre(genre);
         } else {
             setActiveGenre(null);

@@ -37,7 +37,6 @@ function Dropdown(data) {
     return (
         <div className="dropdown-wrapper">
             {/* Dropdown */}
-            {/*You have too much code repetition in here, you may miss to update one of the version when making a change*/}
             <div className="dropdown" onClick={dropdownClickHandler} ref={dropdownRef}>
                 {!compact && <label className="dropdown-label">{label}:</label>}
 
