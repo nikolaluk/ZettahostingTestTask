@@ -7,7 +7,7 @@ export const applyFilter = (games, filter) => {
 
     let output = [];
     //FIX: Combined conditions by using [] syntax for object
-    data[filter.toLowerCase()].forEach(filterId => 
+    data[filter.toLowerCase()]?.forEach(filterId => 
         output.push(games.find(game => game.id == filterId)));
 
     return output;
